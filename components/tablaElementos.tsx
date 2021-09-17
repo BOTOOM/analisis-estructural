@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DataGrid,GridRenderCellParams } from "@mui/x-data-grid";
-// import { useDemoData } from '@mui/x-data-grid-generator';
-
-// import {  } from "@material-ui/core/styles";
 
 const TablaElementos = () => {
-  // const { data } = useDemoData({
-  //     dataSet: 'Commodity',
-  //     rowLength: 5,
-  //     maxColumns: 6,
-  //   });
 
+    // useEffect(() => {
+    //     return apiRef.current.subscribeEvent('columnResize', (params) => {
+    //       setMessage(
+    //         `Column ${params.colDef.headerName} resized to ${params.computedWidth}px.`,
+    //       );
+    //     });
+    //   }, [apiRef]);
+    const selectRow = (params: any) => {
+        console.log('genial', params)
+    }
+    
+ 
   return (
-    <div style={{ height: 600, width: "100%" }}>
+    <div style={{ height: 600, width: "80%" }}>
       <div style={{ display: "flex", height: "100%" }}>
         <div style={{ flexGrow: 1 }}>
-          <DataGrid rowHeight={200}
+          <DataGrid rowHeight={200} onRowClick={selectRow}
             columns={[{ field: "username" }, { field: "age" }, {field: 'ima', renderCell: (params: GridRenderCellParams) => (
                 <img src={params.value} />
             ), width: 200}]}
